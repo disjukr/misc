@@ -9,4 +9,5 @@ edition = "2018"
 [dependencies]
 euclid = "0.20"
 gl = "0.14.0"
+image = "0.23.12"
 surfman = "0.3.0"

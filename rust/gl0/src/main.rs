@@ -35,8 +35,8 @@ fn main() {
     unsafe {
         gl::BindFramebuffer(gl::FRAMEBUFFER, surface_info.framebuffer_object);
         gl::Viewport(0, 0, 640, 480);
-        gl::ClearColor(0.0, 0.0, 0.0, 1.0);
-        gl::Flush();
+        gl::ClearColor(0.3, 0.4, 0.5, 1.0);
+        gl::Clear(gl::COLOR_BUFFER_BIT);
         gl::ReadPixels(
             0,
             0,
@@ -48,5 +48,6 @@ fn main() {
         );
     }
     device.destroy_context(&mut context).unwrap();
+    image::save_buffer("test.png", &pixels, 640, 480, image::ColorType::Rgba8).unwrap();
     std::process::exit(0);
 }
